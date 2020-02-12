@@ -16,7 +16,7 @@ function SignIn(props) {
     textAlign: "center"
   };
   return (
-    <Col className="signin-wrap" xs={{ span: 24 }} md={{ span: 12, offset: 6 }}>
+    <Col className="signin-wrap" xs={{ span: 24 }} md={{ span: 8, offset: 8 }}>
       <div>
         <h3>Step 1: Select business type</h3>
         <p>

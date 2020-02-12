@@ -25,7 +25,7 @@ const marks = {
 
 function MarginPricing(props) {
   return (
-    <Col className="margin-wrap" xs={{ span: 24 }} md={{ span: 12, offset: 6 }}>
+    <Col className="margin-wrap" xs={{ span: 24 }} md={{ span: 8, offset: 8 }}>
       <h3>Set Margins & Pricing</h3>
       <p>
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi

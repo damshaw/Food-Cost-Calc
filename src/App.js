@@ -11,7 +11,7 @@ function App() {
   return (
     <div id="page">
       <Row>
-        <Col xs={{ span: 24 }} md={{ span: 12, offset: 6 }}>
+        <Col xs={{ span: 24 }} md={{ span: 8, offset: 8 }}>
           <Header />
         </Col>
         <Switch>

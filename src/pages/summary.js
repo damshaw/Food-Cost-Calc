@@ -13,11 +13,7 @@ function Summary(props) {
   // const [getNum, setNum] = useLocalStorage("num");
 
   return (
-    <Col
-      className="summary-wrap"
-      xs={{ span: 24 }}
-      md={{ span: 12, offset: 6 }}
-    >
+    <Col className="summary-wrap" xs={{ span: 24 }} md={{ span: 8, offset: 8 }}>
       <h3>View Summary</h3>
       <p>
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum

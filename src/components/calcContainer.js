@@ -198,7 +198,7 @@ class Form extends Component {
               <Col
                 className="calc-wrap"
                 xs={{ span: 24 }}
-                md={{ span: 12, offset: 6 }}
+                md={{ span: 8, offset: 8 }}
               >
                 <h3>Add your ingredients</h3>
                 <p>
@@ -218,7 +218,7 @@ class Form extends Component {
                             name="ingredient"
                             addonBefore="Ingredient"
                             type="text"
-                            defaultValue="E.g. Chicken Breast"
+                            placeholder="E.g. Chicken Breast"
                             value={ingredientDetail.ingredient}
                             onChange={e => this.handleChange(e, i)}
                           />
@@ -229,7 +229,7 @@ class Form extends Component {
                                 addonBefore="Purchase Price"
                                 type="number"
                                 prefix="$"
-                                defaultValue="0.00"
+                                placeholder="0.00"
                                 value={ingredientDetail.purchasePrice}
                                 onChange={e => this.handleChange(e, i)}
                               />
@@ -239,7 +239,7 @@ class Form extends Component {
                                 name="quantityPurchased"
                                 addonBefore="Quantity Purchased"
                                 type="number"
-                                defaultValue="0"
+                                placeholder="0"
                                 value={ingredientDetail.quantityPurchased}
                                 onChange={e => this.handleChange(e, i)}
                               />
@@ -266,7 +266,7 @@ class Form extends Component {
                             name="quantityUsed"
                             addonBefore="Quantity used"
                             type="number"
-                            defaultValue="0"
+                            placeholder="0"
                             value={ingredientDetail.quantityUsed}
                             onChange={e => this.handleChange(e, i)}
                           />
