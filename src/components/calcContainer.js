@@ -24,7 +24,7 @@ class Form extends Component {
       businessType: "",
       location: "",
       termsCheck: "",
-      showStep: "Start",
+      // showStep: "showIngred",
       ingredientDetails: [
         // {
         //   ingredient: "",
@@ -36,10 +36,10 @@ class Form extends Component {
         //   usedCost: 0
         // }
       ],
-      totalCost: 0,
-      marginPercent: 0,
-      markUpAmount: 0,
-      menuPrice: 0
+      totalCost: "",
+      marginPercent: "",
+      markUpAmount: "",
+      menuPrice: ""
 
       // fname: "Adam",
       // lname: "Shaw",
@@ -150,12 +150,12 @@ class Form extends Component {
         ...prevState.ingredientDetails,
         {
           ingredient: "",
-          purchasePrice: 0,
-          quantityPurchased: 0,
+          purchasePrice: "",
+          quantityPurchased: "",
           unitPurchased: "",
-          quantityUsed: 0,
-          perUnit: 0,
-          usedCost: 0
+          quantityUsed: "",
+          perUnit: "",
+          usedCost: ""
         }
       ]
     }));
@@ -198,7 +198,7 @@ class Form extends Component {
               <Col
                 className="calc-wrap"
                 xs={{ span: 24 }}
-                md={{ span: 8, offset: 8 }}
+                md={{ span: 6, offset: 8 }}
               >
                 <h3>Add your ingredients</h3>
                 <p>
@@ -367,7 +367,7 @@ class Form extends Component {
               />
 
               <Summary
-                data={this.state}
+                datam={this.state}
                 handleChange={this.handleChange}
                 handleSummary={this.handleSummary}
               />
@@ -415,7 +415,7 @@ class Form extends Component {
     return (
       <Fragment>
         {this.renderSwitch(this.state.showStep)}
-        {/* <State data={this.state} /> */}
+        <State data={this.state} />
       </Fragment>
     );
   }

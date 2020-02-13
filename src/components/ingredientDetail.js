@@ -45,6 +45,7 @@ function IngredientDetail(props) {
           // value={this.state.quantityUsed}
           onChange={props.handleChange}
         />
+
         <Input
           name="ingredientCost"
           label="Ingredient Cost"

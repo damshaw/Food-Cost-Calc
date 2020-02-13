@@ -18,7 +18,7 @@ function Header(props) {
           </svg>
         </div>
         <div>
-          <h1>Food Cost Calculator</h1>
+          <h1>Food Cost Calculator (Alpha)</h1>
         </div>
       </div>
       {/* <hr />
