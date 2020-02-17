@@ -36,7 +36,7 @@ function Summary(props) {
     portalId: "6808090",
     formId: "301461ae-8d34-4089-b290-54772e4fc182"
   });
-
+  //2d3ec618-837d-4995-9273-1a129eae1b74
   console.log("data", data);
   console.log("isLoading", isLoading);
   console.log("isError", isError);
@@ -52,23 +52,23 @@ function Summary(props) {
       </p>
       <h4>Ingredients Breakdown</h4>
       {/* <form onSubmit={props.handleSummary}> */}
-      <SummaryChart data={props.datam} />
+      <SummaryChart data={props.data} />
       <form onSubmit={handleSubmit}>
-        <input name="email" type="text" value={props.datam.email} />
-        <input type="submit" value="Submit" />
+        <input name="email" type="text" value={props.data.email} />
+        <Button type="submit" text="Email PDF Summary" color="bg-green" />
       </form>
-      <Button
+      {/* <Button
         text="Email PDF Summary"
         color="bg-green"
         onClick={_ => writeStorage("foodCalc", props.datam)}
-      />
+      /> */}
       {/* </form> */}
       {/* <PDFDownloadLink document={PdfDoc} fileName="PdfDoc.pdf">
         {({ blob, url, loading, error }) =>
           loading ? "Loading document..." : "Download now!"
         }
       </PDFDownloadLink> */}
-      <div className="App">
+      {/* <div className="App">
         <Pdf targetRef={ref} filename="code-example.pdf">
           {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
         </Pdf>
@@ -76,7 +76,7 @@ function Summary(props) {
           <h1>Hello CodeSandbox</h1>
           <h2>Start editing to see some magic happen!</h2>
         </div>
-      </div>
+      </div> */}
     </Col>
   );
 }

@@ -7,7 +7,7 @@ import Summary from "../pages/summary";
 import Email from "../pages/email";
 
 import "antd/dist/antd.css";
-import { Collapse, Input, Col, Row, Radio } from "antd";
+import { Collapse, Input, Col, Row, Select, Radio } from "antd";
 // import Input from "../components/input";
 // import IngredientDetail from "../components/ingredientDetail";
 
@@ -160,6 +160,12 @@ class Form extends Component {
       ]
     }));
   };
+  handleRemoveIngredient = e => {
+    e.preventDefault();
+    this.setState({
+      ingredientDetails: this.state.ingredientDetails.slice(0, -1)
+    });
+  };
   onMarginChange = value => {
     let { marginPercent, totalCost, markUpAmount, menuPrice } = this.state;
     markUpAmount = (marginPercent / 100) * totalCost;
@@ -174,6 +180,8 @@ class Form extends Component {
 
   renderSwitch(param) {
     const { Panel } = Collapse;
+    const { Option } = Select;
+
     const radioStyle = {
       height: "48px",
       lineHeight: "48px",
@@ -225,52 +233,80 @@ class Form extends Component {
                           <Row gutter={[12, 12]}>
                             <Col span={12}>
                               <Input
-                                name="purchasePrice"
-                                addonBefore="Purchase Price"
-                                type="number"
-                                prefix="$"
-                                placeholder="0.00"
-                                value={ingredientDetail.purchasePrice}
-                                onChange={e => this.handleChange(e, i)}
-                              />
-                            </Col>
-                            <Col span={12}>
-                              <Input
                                 name="quantityPurchased"
-                                addonBefore="Quantity Purchased"
+                                addonBefore="Quantity"
                                 type="number"
                                 placeholder="0"
                                 value={ingredientDetail.quantityPurchased}
                                 onChange={e => this.handleChange(e, i)}
                               />
                             </Col>
+                            <Col span={12}>
+                              <label>Units</label>
+                              {/* <Select
+                                name="unitPurchased"
+                                style={{ width: "100%" }}
+                                onChange={e => this.handleChange(e, i)}
+                                value={ingredientDetail.unitPurchased}
+                                className="unitPurchased"
+                              >
+                                <Option value="Units">Units</Option>
+                                <Option value="grams">Grams</Option>
+                                <Option value="Kilograms">Kilograms</Option>
+                                <Option value="Millilitres">Millilitres</Option>
+                                <Option value="Litres">Litres</Option>
+                              </Select> */}
+                              <Radio.Group
+                                name="unitPurchased"
+                                value={ingredientDetail.unitPurchased}
+                                onChange={e => this.handleChange(e, i)}
+                                className="unitPurchased"
+                              >
+                                <Radio.Button value="Units" style={radioStyle}>
+                                  Unit
+                                </Radio.Button>
+                                <Radio.Button value="Grams" style={radioStyle}>
+                                  Grams
+                                </Radio.Button>
+                                <Radio.Button
+                                  value="Kilograms"
+                                  style={radioStyle}
+                                >
+                                  Kilograms
+                                </Radio.Button>
+                                <Radio.Button
+                                  value="Millilitres"
+                                  style={radioStyle}
+                                >
+                                  Millilitres
+                                </Radio.Button>
+                                <Radio.Button value="Litres" style={radioStyle}>
+                                  Litres
+                                </Radio.Button>
+                              </Radio.Group>
+                            </Col>
                           </Row>
-                          <label>Unit Purchased</label>
-                          <Radio.Group
-                            name="unitPurchased"
-                            value={ingredientDetail.unitPurchased}
+                          <Input
+                            name="purchasePrice"
+                            addonBefore="Purchase Price"
+                            type="number"
+                            prefix="$"
+                            placeholder="0.00"
+                            value={ingredientDetail.purchasePrice}
                             onChange={e => this.handleChange(e, i)}
-                            className="unitPurchased"
-                          >
-                            <Radio.Button value="unit" style={radioStyle}>
-                              unit
-                            </Radio.Button>
-                            <Radio.Button value="g" style={radioStyle}>
-                              g
-                            </Radio.Button>
-                            <Radio.Button value="mL" style={radioStyle}>
-                              mL
-                            </Radio.Button>
-                          </Radio.Group>
+                          />
+
                           <Input
                             name="quantityUsed"
-                            addonBefore="Quantity used"
+                            addonBefore={`${
+                              ingredientDetail.unitPurchased
+                            } Used`}
                             type="number"
                             placeholder="0"
                             value={ingredientDetail.quantityUsed}
                             onChange={e => this.handleChange(e, i)}
                           />
-                          <label>Ingredient Cost</label>
+                          {/* <label>Ingredient Cost</label>
                           <NumberFormat
                             value={ingredientDetail.usedCost}
                             displayType={"text"}
@@ -282,8 +318,13 @@ class Form extends Component {
                                 {value}
                               </div>
                             )}
+                          /> */}
+                          <hr />
+                          <Button
+                            onClick={this.handleRemoveIngredient}
+                            text="Remove ingredient"
+                            color="bg-grey"
                           />
-
                           {/* <Input
                               name="usedCost"
                               addonBefore="Ingredient Cost"
@@ -367,7 +408,7 @@ class Form extends Component {
               />
 
               <Summary
-                datam={this.state}
+                data={this.state}
                 handleChange={this.handleChange}
                 handleSummary={this.handleSummary}
               />

@@ -1,5 +1,5 @@
 import React from "react";
-import { Slider, InputNumber, Col, Row } from "antd";
+import { Slider, InputNumber, Select, Col, Row } from "antd";
 import NumberFormat from "react-number-format";
 const marks = {
   0: {
@@ -8,18 +8,14 @@ const marks = {
     },
     label: <strong>0%</strong>
   },
-  25: "25%",
-  50: "50%",
-  75: "75%",
   100: "100%",
-  125: "125%",
-  150: "150%",
-  175: "175%",
-  200: {
+  200: "200%",
+  300: "300%",
+  400: {
     style: {
       color: "#b0b0b0"
     },
-    label: <strong>200%</strong>
+    label: <strong>400%</strong>
   }
 };
 
@@ -64,14 +60,14 @@ function MarginPricing(props) {
           <InputNumber
             defaultValue={0}
             min={0}
-            max={200}
+            max={400}
             formatter={value => `${value}%`}
             parser={value => value.replace("%", "")}
             style={{ width: "100%", borderColor: "transparent" }}
             className="price-display bg-white"
             name="marginPercent"
             value={props.data.marginPercent}
-            onChange={props.handleChange}
+            // onChange={props.handleChange}
           />
         </Col>
         <Col span={12}>
@@ -91,9 +87,10 @@ function MarginPricing(props) {
       </Row>
       <Slider
         min={0}
-        max={200}
+        max={400}
         marks={marks}
         name="marginPercent"
+        defaultValue={100}
         value={
           typeof props.data.marginPercent === "number"
             ? props.data.marginPercent
