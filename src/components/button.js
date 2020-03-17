@@ -2,10 +2,7 @@ import React from "react";
 function Button(props) {
   return (
     <div className="uk-width-1-1">
-      <button
-        className={`uk-button uk-button-default uk-width-1-1 ${props.color}`}
-        onClick={props.onClick}
-      >
+      <button className={`kbutton ${props.color}`} onClick={props.onClick}>
         {props.text}
       </button>
     </div>

@@ -47,6 +47,27 @@ function Summary(props) {
   return (
     <Row className="summary-wrap">
       <Col xs={{ span: 24 }} md={{ span: 12, offset: 6 }}>
+        <h3>View Summary</h3>
+        <p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+          proident.
+        </p>
+        <h4>Ingredients Breakdown</h4>
+        <ul style={{ listStyle: "none", marginLeft: "0", paddingLeft: "0" }}>
+          {props.appData.ingredientDetails.map((ingredientDetail, i) => (
+            <li
+              style={{
+                marginBottom: "12px",
+                paddingBottom: "12px",
+                borderBottom: "1px solid #f8f8f8"
+              }}
+            >
+              <strong>{ingredientDetail.ingredient}</strong>
+              <br />$ {ingredientDetail.usedCost}
+            </li>
+          ))}
+        </ul>
         <SummaryChart appData={props.appData} />
         <SubmitEmail appData={props.appData} />
         {/* <form onSubmit={handleSubmit}>

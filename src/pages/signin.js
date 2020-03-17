@@ -1,6 +1,7 @@
-import React from "react";
-import { Input, Radio, Col } from "antd";
-
+import React, { Fragment } from "react";
+import { Input, Radio, Col, Row } from "antd";
+import Header from "../components/header";
+import Footer from "../components/footer";
 import Button from "../components/button";
 
 function SignIn(props) {
@@ -9,47 +10,84 @@ function SignIn(props) {
   // function handleClick() {
   //   history.push("/ingredients");
   // }
-  const radioStyle = {
-    height: "96px",
-    lineHeight: "96px",
-    display: "inline-block",
-    textAlign: "center"
-  };
+
   return (
-    <Col className="signin-wrap" xs={{ span: 24 }} md={{ span: 6, offset: 8 }}>
-      <div>
-        <h3>Step 1: Select business type</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi
-          morbi eget tincidunt integer amet neque.
-        </p>
-        <Radio.Group
-          name="businessType"
-          value={props.data.businessType}
-          onChange={props.handleChange}
-          className="businessType"
-        >
-          <Radio.Button value="cafe" style={radioStyle}>
-            Cafe
-          </Radio.Button>
-          <Radio.Button value="bar" style={radioStyle}>
-            Bar
-          </Radio.Button>
-          <Radio.Button value="restaurant" style={radioStyle}>
-            Restaurant
-          </Radio.Button>
-          <Radio.Button value="foodRetailer" style={radioStyle}>
-            Food Retailer
-          </Radio.Button>
-          <Radio.Button value="brewery" style={radioStyle}>
-            Brewery
-          </Radio.Button>
-          <Radio.Button value="hotel" style={radioStyle}>
-            Hotel
-          </Radio.Button>
-        </Radio.Group>
-      </div>
-      {/* <div>
+    <Fragment>
+      <Row className="signin-wrap">
+        <Header />
+        <Col xs={{ span: 24 }} md={{ span: 12, offset: 6 }}>
+          <div>
+            <h3>Step 1: Select business type</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi
+              morbi eget tincidunt integer amet neque.
+            </p>
+            <Radio.Group
+              name="businessType"
+              value={props.appData.businessType}
+              onChange={props.handleChange}
+              className="businessType"
+            >
+              <Radio.Button value="Cafe">
+                <img
+                  alt="cafe"
+                  width="60"
+                  height="auto"
+                  src="https://4bc3c611vkso1vlr592w9fyz-wpengine.netdna-ssl.com/wp-content/uploads/2020/01/cafe-100x100.png"
+                />
+                Cafe
+              </Radio.Button>
+              <Radio.Button value="Bar">
+                <img
+                  alt="bar"
+                  width="60"
+                  height="auto"
+                  src="https://4bc3c611vkso1vlr592w9fyz-wpengine.netdna-ssl.com/wp-content/uploads/2020/01/bar-100x100.png"
+                />
+                Bar
+              </Radio.Button>
+              <Radio.Button value="Restaurant">
+                <img
+                  alt="restaurant"
+                  width="60"
+                  height="auto"
+                  src="https://4bc3c611vkso1vlr592w9fyz-wpengine.netdna-ssl.com/wp-content/uploads/2020/01/restaurant-100x100.png"
+                />
+                Restaurant
+              </Radio.Button>
+              <Radio.Button value="Food Retail">
+                <img
+                  alt="food retailer"
+                  width="60"
+                  height="auto"
+                  src="https://4bc3c611vkso1vlr592w9fyz-wpengine.netdna-ssl.com/wp-content/uploads/2020/01/retail-2-100x100.png"
+                />
+                Food Retailer
+              </Radio.Button>
+              <Radio.Button value="Brewery">
+                <img
+                  alt="brewery"
+                  width="60"
+                  height="auto"
+                  src="https://4bc3c611vkso1vlr592w9fyz-wpengine.netdna-ssl.com/wp-content/uploads/2020/01/brew-100x100.png"
+                />
+                Brewery
+              </Radio.Button>
+              <Radio.Button value="Hotel">
+                <img
+                  alt="hotel"
+                  width="60"
+                  height="auto"
+                  src="https://4bc3c611vkso1vlr592w9fyz-wpengine.netdna-ssl.com/wp-content/uploads/2020/01/hotel-100x100.png"
+                />
+                Hotel
+              </Radio.Button>
+              <Radio.Button value="Other" className="other-type">
+                Other
+              </Radio.Button>
+            </Radio.Group>
+          </div>
+          {/* <div>
         <h3>Step 2: Select your location</h3>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi
@@ -57,7 +95,7 @@ function SignIn(props) {
         </p>
         <Radio.Group
           name="location"
-          value={props.data.location}
+          value={props.appData.location}
           onChange={props.handleChange}
           className="location"
         >
@@ -88,19 +126,19 @@ function SignIn(props) {
         </Radio.Group>
       </div> */}
 
-      <div>
-        <h3>Step 2: Submit your details</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi
-          morbi eget tincidunt integer amet neque.
-        </p>
-        <form onSubmit={props.handleSignIn}>
-          {/* <Input
+          <div>
+            <h3>Step 2: Submit your email</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi
+              morbi eget tincidunt integer amet neque.
+            </p>
+            <form onSubmit={props.handleSignIn}>
+              {/* <Input
             name="fname"
             addonBefore="First Name"
             type="text"
             defaultValue="Enter your first name"
-            value={props.data.fname}
+            value={props.appData.fname}
             onChange={props.handleChange}
           />
           <Input
@@ -108,21 +146,25 @@ function SignIn(props) {
             addonBefore="Last Name"
             type="text"
             defaultValue="Enter your last name"
-            value={props.data.lname}
+            value={props.appData.lname}
             onChange={props.handleChange}
           /> */}
-          <Input
-            name="email"
-            addonBefore="Email Address"
-            type="email"
-            placeholder="Enter your email address"
-            value={props.data.email}
-            onChange={props.handleChange}
-          />
-          <Button text="Submit" color="bg-orange-light" />
-        </form>
-      </div>
-    </Col>
+              <Input
+                name="email"
+                addonBefore="Email Address"
+                type="email"
+                placeholder="Enter your email address"
+                value={props.appData.email}
+                onChange={props.handleChange}
+                required
+              />
+              <Button text="Let's begin!" color="bg-orange-light" />
+            </form>
+          </div>
+        </Col>
+        <Footer />
+      </Row>
+    </Fragment>
   );
 }
 
